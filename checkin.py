@@ -149,7 +149,8 @@ def main():
     balance_after = quota_to_dollar(info_after.get("quota", 0))
 
     # 判断签到结果
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    local_time = time.gmtime(time.time() + 8 * 3600)
+    now = time.strftime("%Y-%m-%d %H:%M:%S", local_time)
     success = checkin_data.get("success", False)
     msg = str(checkin_data.get("message", ""))
 
